@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,7 +19,7 @@ import javax.swing.JTextField;
 public class Screen {
 
 	JFrame tela;
-	JMenu sair;
+	JMenu github, sair;
 	JMenuBar barraMenu;
 	JButton btnUm, btnDois, btnTres, btnQuatro, btnCinco, btnSeis, btnSete, btnOito, btnNove, btnZero, btnPonto,
 			btnLimpar, btnOk, btnSinal;
@@ -33,8 +35,14 @@ public class Screen {
 	public void inicializarComponentes() {
 
 		tela = new JFrame();
+
+		//
+		// Menu
+		//
 		barraMenu = new JMenuBar();
 		sair = new JMenu("Sair");
+		github = new JMenu("GitHub");
+		barraMenu.add(github);
 		barraMenu.add(sair);
 
 		//
@@ -47,13 +55,13 @@ public class Screen {
 		lblConversao.setBounds(50, 175, 150, 30);
 
 		lblSaidaCelsius = new JLabel("00.0");
-		lblSaidaCelsius.setBounds(50, 200, 150, 30);
+		lblSaidaCelsius.setBounds(50, 200, 90, 30);
 
 		lblSaidaFah = new JLabel("00.0");
-		lblSaidaFah.setBounds(50, 220, 150, 30);
+		lblSaidaFah.setBounds(50, 220, 90, 30);
 
 		lblSaidaKelvin = new JLabel("00.0");
-		lblSaidaKelvin.setBounds(50, 240, 150, 30);
+		lblSaidaKelvin.setBounds(50, 240, 90, 30);
 
 		lblC = new JLabel("°C");
 		lblC.setBounds(184, 200, 150, 30);
@@ -97,6 +105,54 @@ public class Screen {
 		btnLimpar.setBounds(50, 150, 150, 20);
 		btnLimpar.setFocusPainted(false);
 
+		btnUm = new JButton("1");
+		btnUm.setBounds(260, 20, 50, 50);
+		btnUm.setFocusPainted(false);
+
+		btnDois = new JButton("2");
+		btnDois.setBounds(320, 20, 50, 50);
+		btnDois.setFocusPainted(false);
+
+		btnTres = new JButton("3");
+		btnTres.setBounds(380, 20, 50, 50);
+		btnTres.setFocusPainted(false);
+
+		btnQuatro = new JButton("4");
+		btnQuatro.setBounds(260, 90, 50, 50);
+		btnQuatro.setFocusPainted(false);
+
+		btnCinco = new JButton("5");
+		btnCinco.setBounds(320, 90, 50, 50);
+		btnCinco.setFocusPainted(false);
+
+		btnSeis = new JButton("6");
+		btnSeis.setBounds(380, 90, 50, 50);
+		btnSeis.setFocusPainted(false);
+
+		btnSete = new JButton("7");
+		btnSete.setBounds(260, 160, 50, 50);
+		btnSete.setFocusPainted(false);
+
+		btnOito = new JButton("8");
+		btnOito.setBounds(320, 160, 50, 50);
+		btnOito.setFocusPainted(false);
+
+		btnNove = new JButton("9");
+		btnNove.setBounds(380, 160, 50, 50);
+		btnNove.setFocusPainted(false);
+
+		btnZero = new JButton("0");
+		btnZero.setBounds(260, 230, 50, 50);
+		btnZero.setFocusPainted(false);
+
+		btnPonto = new JButton(".");
+		btnPonto.setBounds(320, 230, 50, 50);
+		btnPonto.setFocusPainted(false);
+
+		btnSinal = new JButton("+/-");
+		btnSinal.setBounds(380, 230, 50, 50);
+		btnSinal.setFocusPainted(false);
+
 		tela.setJMenuBar(barraMenu);
 		tela.add(lblEntrada);
 		tela.add(txtEntrada);
@@ -112,10 +168,22 @@ public class Screen {
 		tela.add(lblC);
 		tela.add(lblF);
 		tela.add(lblK);
+		tela.add(btnUm);
+		tela.add(btnDois);
+		tela.add(btnTres);
+		tela.add(btnQuatro);
+		tela.add(btnCinco);
+		tela.add(btnSeis);
+		tela.add(btnSete);
+		tela.add(btnOito);
+		tela.add(btnNove);
+		tela.add(btnZero);
+		tela.add(btnPonto);
+		tela.add(btnSinal);
 
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tela.setTitle("Conversor de Temperatura");
-		tela.setSize(500, 350);
+		tela.setSize(485, 350);
 		tela.setLocationRelativeTo(null);
 		tela.setResizable(false);
 		tela.setLayout(null);
@@ -257,6 +325,161 @@ public class Screen {
 				}
 			}
 		});
+
+		btnUm.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "1");
+			}
+		});
+
+		btnDois.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "2");
+			}
+		});
+
+		btnTres.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "3");
+			}
+		});
+
+		btnQuatro.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "4");
+			}
+		});
+
+		btnCinco.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "5");
+			}
+		});
+
+		btnSeis.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "6");
+			}
+		});
+
+		btnSete.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "7");
+			}
+		});
+
+		btnOito.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "8");
+			}
+		});
+
+		btnNove.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "9");
+			}
+		});
+
+		btnZero.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtEntrada.setText(txtEntrada.getText() + "0");
+			}
+		});
+
+		btnPonto.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if (txtEntrada.getText().contains(".")) {
+					JOptionPane.showMessageDialog(null, "Impossível adicionar mais de um ponto.");
+				} else {
+					txtEntrada.setText(txtEntrada.getText() + ".");
+				}
+			}
+		});
+
+		btnSinal.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				int sinal, valorEntrada;
+				String s;
+
+				try {
+					valorEntrada = Integer.parseInt(txtEntrada.getText());
+
+					if (valorEntrada > 0) {
+						sinal = valorEntrada * -1;
+						s = String.format("%d", sinal).toString();
+						txtEntrada.setText(s);
+					} else {
+						sinal = valorEntrada * -1;
+						s = String.format("%d", sinal).toString();
+						txtEntrada.setText(s);
+					}
+				} catch (NumberFormatException e2) {
+					JOptionPane.showMessageDialog(null, "Informe um valor antes.");
+				}
+
+			}
+		});
+		
+		github.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					java.awt.Desktop.getDesktop().browse(new java.net.URI("https://github.com/alexandre-dias/ConversorTemperatura"));
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+
 		sair.addMouseListener(new MouseListener() {
 
 			@Override
